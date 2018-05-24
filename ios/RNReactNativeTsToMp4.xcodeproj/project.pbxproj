@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3E7B58A1CC2AC0600A0062D /* RNReactNativeTsToMp4.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNReactNativeTsToMp4.m */; };
+		EDC36EEA20B6E9D300FD1029 /* FFmpeg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC36EE920B6E9D300FD1029 /* FFmpeg.framework */; };
+		EDC36EED20B6E9EE00FD1029 /* RNReactNativeTsToMp4.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC36EEC20B6E9EE00FD1029 /* RNReactNativeTsToMp4.m */; };
+		EDC36EF020B6EA1000FD1029 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC36EEF20B6EA1000FD1029 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,8 +26,10 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNReactNativeTsToMp4.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNReactNativeTsToMp4.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3E7B5881CC2AC0600A0062D /* RNReactNativeTsToMp4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNReactNativeTsToMp4.h; sourceTree = "<group>"; };
-		B3E7B5891CC2AC0600A0062D /* RNReactNativeTsToMp4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNReactNativeTsToMp4.m; sourceTree = "<group>"; };
+		EDC36EE920B6E9D300FD1029 /* FFmpeg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FFmpeg.framework; sourceTree = "<group>"; };
+		EDC36EEB20B6E9EE00FD1029 /* RNReactNativeTsToMp4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNReactNativeTsToMp4.h; sourceTree = "<group>"; };
+		EDC36EEC20B6E9EE00FD1029 /* RNReactNativeTsToMp4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNReactNativeTsToMp4.m; sourceTree = "<group>"; };
+		EDC36EEF20B6EA1000FD1029 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDC36EF020B6EA1000FD1029 /* AVFoundation.framework in Frameworks */,
+				EDC36EEA20B6E9D300FD1029 /* FFmpeg.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,10 +56,20 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				B3E7B5881CC2AC0600A0062D /* RNReactNativeTsToMp4.h */,
-				B3E7B5891CC2AC0600A0062D /* RNReactNativeTsToMp4.m */,
+				EDC36EEB20B6E9EE00FD1029 /* RNReactNativeTsToMp4.h */,
+				EDC36EEC20B6E9EE00FD1029 /* RNReactNativeTsToMp4.m */,
+				EDC36EE920B6E9D300FD1029 /* FFmpeg.framework */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				EDC36EEE20B6EA1000FD1029 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		EDC36EEE20B6EA1000FD1029 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDC36EEF20B6EA1000FD1029 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,7 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E7B58A1CC2AC0600A0062D /* RNReactNativeTsToMp4.m in Sources */,
+				EDC36EED20B6E9EE00FD1029 /* RNReactNativeTsToMp4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,11 +219,16 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
-				"$(inherited)",
+					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native/React",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
@@ -219,11 +240,16 @@
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native/React",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
