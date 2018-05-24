@@ -1,0 +1,92 @@
+{
+    "extends": ["prettier", "prettier/flowtype", "prettier/react", "react-app"],
+    "parser": "babel-eslint",
+    "globals": {
+        "deepFreeze": true,
+        "expect": true,
+        "getMockStore": true,
+        "getReactIntlSpies": true,
+        "getReduxFormProps": true,
+        "makeGeneratorSnapshot": true,
+        "mockGetMockComponent": true,
+        "render": true,
+        "testReducer": true,
+        "shallowRender": true,
+        "history": true
+    },
+    "plugins": ["prettier", "import", "flowtype"],
+    "rules": {
+        "flowtype/no-types-missing-file-annotation": "error",
+        "camelcase": "error",
+        "eqeqeq": ["error", "allow-null"],
+        "import/namespace": 0,
+        "import/no-restricted-paths": [
+            "error",
+            {
+                "zones": [{ "target": "./src/core", "from": "./src/assets" }]
+            }
+        ],
+        "new-cap": [
+            "error",
+            {
+                "capIsNew": false
+            }
+        ],
+        "no-console": [
+            "error",
+            {
+                "allow": ["error"]
+            }
+        ],
+        "no-unused-vars": "error",
+        "no-var": "error",
+        "no-warning-comments": [
+            "warn",
+            {
+                "location": "anywhere",
+                "terms": ["fixme", "todo"]
+            }
+        ],
+        "prefer-const": [
+            "error",
+            {
+                "destructuring": "any"
+            }
+        ],
+        "prettier/prettier": [
+            "error",
+            {
+                "printWidth": 120,
+                "singleQuote": true,
+                "tabWidth": 4
+            }
+        ],
+        "react/display-name": "off",
+        "react/jsx-key": "error",
+        "react/jsx-no-comment-textnodes": "error",
+        "react/jsx-no-duplicate-props": "error",
+        "react/jsx-no-undef": "error",
+        "react/jsx-pascal-case": [
+            "error",
+            {
+                "allowAllCaps": true
+            }
+        ],
+        "react/jsx-sort-props": [
+            "error",
+            {
+                "ignoreCase": true
+            }
+        ],
+        "react/no-string-refs": "error",
+        "react/prefer-es6-class": "error",
+        "react/require-render-return": "error",
+        "react/self-closing-comp": "error",
+        "react/sort-prop-types": "error"
+    },
+    "settings": {
+        "import/resolver": {
+            "babel-module": {}
+        }
+    }
+}
