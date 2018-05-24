@@ -1,6 +1,8 @@
 
 # react-native-react-native-ts-to-mp4
 
+##### ⚠️  Library works only for iOS now
+
 ## Getting started
 
 `$ npm install react-native-react-native-ts-to-mp4 --save`
@@ -34,20 +36,10 @@
       compile project(':react-native-react-native-ts-to-mp4')
   	```
 
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
-
-1. In Visual Studio add the `RNReactNativeTsToMp4.sln` in `node_modules/react-native-react-native-ts-to-mp4/windows/RNReactNativeTsToMp4.sln` folder to their solution, reference from their app.
-2. Open up your `MainPage.cs` app
-  - Add `using React.Native.Ts.To.Mp4.RNReactNativeTsToMp4;` to the usings at the top of the file
-  - Add `new RNReactNativeTsToMp4Package()` to the `List<IReactPackage>` returned by the `Packages` method
-
-
 ## Usage
 ```javascript
 import RNReactNativeTsToMp4 from 'react-native-react-native-ts-to-mp4';
 
-// TODO: What to do with the module?
-RNReactNativeTsToMp4;
+RNReactNativeTsToMp4.convert(tsFilesArray, output);
 ```
   
