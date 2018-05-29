@@ -1,6 +1,6 @@
 {
   "name": "react-native-ts-to-mp4",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React-Native library for convertin bunch of TS files into MP4",
   "main": "index.js",
   "scripts": {
