@@ -9,4 +9,4 @@ interface RemuxerInterface {
 const RNReactNativeTsToMp4: RemuxerInterface = rn.NativeModules.RNReactNativeTsToMp4;
 
 export type { RemuxerInterface };
-export default RNReactNativeTsToMp4;
+module.export = RNReactNativeTsToMp4;
