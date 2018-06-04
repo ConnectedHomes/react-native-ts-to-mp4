@@ -32,5 +32,6 @@ repositories {
 
 dependencies {
     compile 'com.facebook.react:react-native:+'
+    api fileTree(dir: 'libs', include: ['*.aar'])
 }
   
