@@ -1,8 +1,6 @@
 
 # react-native-react-native-ts-to-mp4
 
-##### ⚠️  Library works only for iOS now
-
 ## Getting started
 
 `$ npm install react-native-react-native-ts-to-mp4 --save`
