@@ -1,12 +1,9 @@
 
 package com.reactlibrary;
 
-import com.github.hiteshsondhi88.libffmpeg.ExecuteBinaryResponseHandler;
-import com.github.hiteshsondhi88.libffmpeg.FFmpeg;
+import nl.bravobit.ffmpeg.ExecuteBinaryResponseHandler;
+import nl.bravobit.ffmpeg.FFmpeg;
 import com.facebook.react.bridge.*;
-import com.github.hiteshsondhi88.libffmpeg.LoadBinaryResponseHandler;
-import com.github.hiteshsondhi88.libffmpeg.exceptions.FFmpegCommandAlreadyRunningException;
-import com.github.hiteshsondhi88.libffmpeg.exceptions.FFmpegNotSupportedException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -37,25 +34,11 @@ public class RNReactNativeTsToMp4Module extends ReactContextBaseJavaModule {
     @ReactMethod
     public void convert(ReadableArray tsFiles, String mp4Output, ReadableMap options, final Promise promise) {
 
-        try {
-            loadFfmpegBinary(mp4Output, tsFiles, options.getString("oauthToken"), options.getString("ffmpegBinaryURL"), promise);
-        } catch (FFmpegNotSupportedException e) {
-            promise.reject(E_FFMPEG_NOT_LOADED, e);
+        if(fFmpeg.isSupported()) {
+            startTranscoding(mp4Output, tsFiles, promise);
+        } else {
+            promise.reject(E_FFMPEG_NOT_LOADED, new UnableToLoadFfmpegException());
         }
-    }
-
-    private void loadFfmpegBinary(final String mp4Output, final ReadableArray tsFiles, String oauthToken, String ffmpegBinaryURL, final Promise promise) throws FFmpegNotSupportedException {
-        fFmpeg.loadBinary(new LoadBinaryResponseHandler() {
-            @Override
-            public void onFailure() {
-                promise.reject(E_FFMPEG_NOT_LOADED, new UnableToLoadFfmpegException());
-            }
-
-            @Override
-            public void onSuccess() {
-                startTranscoding(mp4Output, tsFiles, promise);
-            }
-        }, ffmpegBinaryURL, oauthToken);
     }
 
     private File getDecryptedHlsFilesLocation(ReadableArray tsFiles) throws FileNotFoundException {
@@ -89,9 +72,6 @@ public class RNReactNativeTsToMp4Module extends ReactContextBaseJavaModule {
             });
         } catch (FileNotFoundException e) {
             promise.reject(E_INPUT_FILES_NOT_FOUND, e);
-        } catch (FFmpegCommandAlreadyRunningException e) {
-            promise.reject(E_FFMPEG_ALREADY_RUNNING, e);
-
         }
     }
 
