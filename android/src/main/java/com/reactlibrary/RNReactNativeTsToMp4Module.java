@@ -32,7 +32,7 @@ public class RNReactNativeTsToMp4Module extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void convert(ReadableArray tsFiles, String mp4Output, ReadableMap options, final Promise promise) {
+    public void convert(ReadableArray tsFiles, String mp4Output, final Promise promise) {
 
         if(fFmpeg.isSupported()) {
             startTranscoding(mp4Output, tsFiles, promise);
