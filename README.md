@@ -41,3 +41,10 @@ import RNReactNativeTsToMp4 from 'react-native-react-native-ts-to-mp4';
 RNReactNativeTsToMp4.convert(tsFilesArray, output);
 ```
   
+## Dev Notes
+
+### Android
+
+The underlying android library is `bravobit/FFmpeg-Android` (our backup fork: `ConnectedHomes/FFmpeg-Android`). Because it is not published to Maven etc (because it is itself a fork of an outdated library already in Maven) the way to integrate `bravobit/FFmpeg-Android` is clone/checkout that repo seperately and then build it with android studio or gradle. the output of that will be an `aar` in `build/outputs` folder which will then need to be copied over into `android/libs/FFmpegAndroid.aar` in this repo. 
+
+Note that the current FFmpegAndroid.aar was compiled from `bravobit/FFmpeg-Android@2a77b5e7d822ea75672e9b2c19ff5e1f7957252b` and is a relatively "fat" binary with many compiled extra extensions that we don't need.
