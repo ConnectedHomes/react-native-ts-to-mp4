@@ -26,7 +26,7 @@ RCT_EXPORT_MODULE();
     return YES;
 }
 
-RCT_EXPORT_METHOD(convert:(NSArray<NSString*>*)inputFilePaths toMP4:(NSString*)outputFilePath options:(NSDictionary*)options resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+RCT_EXPORT_METHOD(convert:(NSArray<NSString*>*)inputFilePaths toMP4:(NSString*)outputFilePath resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
     int errorCode;
 
     // Opening output file and configure the output context
