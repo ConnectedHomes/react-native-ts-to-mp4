@@ -7,7 +7,7 @@
 //
 
 #import "RNReactNativeTsToMp4.h"
-#import <FFmpeg/avformat.h>
+#import "avformat.h"
 
 @implementation RNReactNativeTsToMp4
 
